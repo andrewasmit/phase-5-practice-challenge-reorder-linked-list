@@ -8,6 +8,21 @@ class LinkedList
   end
 
   def reorder_linked_list
-    # your code here
+    return if head.nil?
+    
+    odd = head
+    even = head.next_node
+
+    even_head = even
+
+    while even && even.next_node
+      odd.next_node = even.next_node
+      odd = odd.next_node
+
+      even.next_node = odd.next_node
+      even = even.next_node
+    end
+    odd.next_node = even_head
   end
+
 end
